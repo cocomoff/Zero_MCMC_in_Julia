@@ -1,3 +1,21 @@
 # Zero MCMC in Julia
 
 - Julia port for ゼロからできるMCMC マルコフ連鎖モンテカルロ法の実践的入門
+
+## Contents
+
+- Chapter 2
+    - [x] pi_MC.jl モンテカルロ法(円)でπ/4を推定
+    - [x] pi_MC_integral.jl モンテカルロ法(積分)でπ/4を推定
+    - [x] three_sphere.jl モンテカルロ法(球体)で4/3πを推定
+- Chapter 4
+    - [ ] Gaussian_Metropolis.jl 
+        - [x] 図4.1を再現 (メトロポリス法で標準正規分布をサンプル)
+        - [x] 図4.2を再現 (平均/分散のサンプル計算)
+        - [x] 図4.3を再現 (分布のずれ)
+        - [ ] 図4.4を再現 (初期値依存性)
+    - 自己相関
+    - ジャックナイフ誤差
+    - ステップ幅の調整
+    - 重ねあった分布のサンプル
+- Chapter 5以降 まだ
