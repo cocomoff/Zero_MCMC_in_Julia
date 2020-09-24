@@ -1,5 +1,3 @@
-using LinearAlgebra: norm
-
 function compute(;n_iter=1_000_000, print_step=1_000)
     sum_y = 0.0
 
