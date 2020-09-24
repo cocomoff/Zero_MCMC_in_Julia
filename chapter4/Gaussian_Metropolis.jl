@@ -85,5 +85,48 @@ function fig42()
 
 end
 
+function fig43()
+    S(x) = 0.5 * x * x
+    n_iter = 100000
+    step_size = 0.5
+    x = 0.0
+    n_accept = 0
+
+    values = Float64[]
+
+    # ずれたサンプルを取るための分布
+    bad_dist = Uniform(-0.5, 1.0)
+
+    # main loop
+    for i in 1:n_iter
+        backup_x = x
+        action_init = S(x)
+        x += rand(bad_dist)
+
+        action_fin = S(x)
+        if exp(action_init - action_fin) > rand()
+            n_accept += 1
+        else
+            x = backup_x
+        end
+
+        push!(values, x)
+    end
+
+
+    f = plot(size=(400, 300))
+    histogram!(f, values, bins=50, normalize=true, label="sample")
+
+    # real values (ans) of S(x) = (x^2)/2
+    dnorm = Normal()
+    x = -2.0:0.01:2.0
+    y = pdf.(dnorm, x)
+    plot!(x, y, color=:red, label="ans")
+
+    savefig(f, "chapter4/fig4.3.png")
+end
+
+
 # fig41()
-fig42()
+# fig42()
+fig43()
