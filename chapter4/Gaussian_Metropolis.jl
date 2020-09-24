@@ -49,9 +49,41 @@ function plot_values_in_hist_with_ans(values; n_bins=50)
     savefig(f, "chapter4/histogram1_n$(length(values)).png")
 end
 
-S(x) = 0.5 * x * x
 
-for n_iter in [10^3, 10^4, 10^5]
-    values = compute(S, n_iter=n_iter);
-    plot_values_in_hist_with_ans(values)
+function fig41()
+    S(x) = 0.5 * x * x
+
+    for n_iter in [10^3, 10^4, 10^5]
+        values = compute(S, n_iter=n_iter);
+        plot_values_in_hist_with_ans(values)
+    end
 end
+
+function fig42()
+    S(x) = 0.5 * x * x
+    N = 10^7
+    n_step = 1000
+    values = compute(S, n_iter=N);
+
+    # compute <x> and <x^2> on log spaces
+    plot_i = exp10.(range(2, 7, length=50))
+    seq_q1 = Float64[] # <x>
+    seq_q2 = Float64[] # <x^2>
+
+    for p in plot_i
+        values = compute(S, n_iter=round(p))
+        push!(seq_q1, mean(values))
+        push!(seq_q2, mean(values .^ 2))
+    end
+
+    f = plot(size=(700, 500), xscale=:log)
+    plot!(f, plot_i, seq_q1, color=:red, lw=3, label="mean")
+    plot!(f, plot_i, seq_q2, color=:blue, lw=3, label="var")
+    plot!(f, plot_i, [1 for _ in 1:length(plot_i)], color=:blue, lw=1, label="")
+    plot!(f, plot_i, [0 for _ in 1:length(plot_i)], color=:red, lw=1, label="")
+    savefig(f, "chapter4/fig4.2.png")
+
+end
+
+# fig41()
+fig42()
