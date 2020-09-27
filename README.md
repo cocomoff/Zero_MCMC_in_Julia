@@ -22,4 +22,9 @@
 - Chapter 5
     - [ ] Gaussian_Metropolis_2var.jl
         - [x] 図5.1
-- Chapter 6以降 まだ
+        - [ ] 図5.3 (収束の気配が微妙，実装ミス？)
+    - [x] graph.jl
+        - [x] 図5.2
+- Chapter 6
+    - [ ] Gaussian_HMC.jl
+- Chapter 7以降 まだ
