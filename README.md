@@ -20,11 +20,13 @@
         - [x] 図4.9 重ねあった分布のサンプル
         - [ ] 図4.10 重ねった分布その2 (未動作)
 - Chapter 5
-    - [ ] Gaussian_Metropolis_2var.jl
+    - [x] Gaussian_Metropolis_2var.jl
         - [x] 図5.1
-        - [ ] 図5.3 (収束の気配が微妙，実装ミス？)
+        - [x] 図5.3 (physics) 図5.4 (baseball) (N少なめ)
+        - [ ] 図5.5 reweight 未実装
     - [x] graph.jl
         - [x] 図5.2
+    - 
 - Chapter 6
     - [ ] Gaussian_HMC.jl
 - Chapter 7以降 まだ
