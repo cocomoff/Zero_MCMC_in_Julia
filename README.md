@@ -29,4 +29,5 @@
     - 
 - Chapter 6
     - [ ] Gaussian_HMC.jl
+        - [x] 1変数のリープフロッグ法
 - Chapter 7以降 まだ
