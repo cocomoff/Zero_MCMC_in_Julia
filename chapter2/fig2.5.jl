@@ -37,6 +37,8 @@ function draw_error(; n_trial=100, n_iter=10_000, sep=100)
     scatter!(f, vec_means, yerror=vec_stds)
     savefig("output.png")
 
-end
+    f = plot(size=(500, 500))
+    plot!(f, 1 ./ sqrt.(1:sep), abs.(([pi / 4 for _ in 1:sep]) .- vec_stds))
+    savefig("output2.png")
 
-compute();
+end
